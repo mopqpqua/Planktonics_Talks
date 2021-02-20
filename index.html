@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+  <title>Planktonics Talks</title>
+  <meta charset="utf-8"/>
+  <meta
+  name="author"
+  content="Slava Rykov"
+  />
+  <meta
+  name="description"
+  content="Corporate chat app"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+  <header class="header">
+    <h1 class="header__title">Planktonics Talks</h1>
+  </header>
+
+  <main class="chat">
+    <section class="talking">
+      <ul class="chat__receivedList">
+        <li class="chat__message">
+          <span class="chat__from">Иван Пущин: </span>
+          Привет, Александр! Как там твоя поэма?
+        </li>
+        <li class="chat__message">
+          <span class="chat__from">Вера Вяземская: </span>
+          Право же, Саша, это же надо было так...
+        </li>
+        <li class="chat__message">
+          <span class="chat__from">Жорж Дантес: </span>
+          Смею вызывать вас на дуэль! Мерзавец! Дуэль в майнкрафте!
+        </li>
+      </ul>
+      <ul class="chat__sentList">
+        <li class="chat__message">
+          <span class="chat__to">Ивану Пущину: </span>
+          В последнее время офис, а не поэма...
+        </li>
+        <li v-for="message in messages">{{ message }}</li>
+      </ul>
+      <input
+      type="text"
+      class="chat__input"
+      name="inputMsg"
+      v-on:keyup.enter="sentMessage"
+      >
+      <select
+      class="chat__contacts"
+      name="contacts"
+      >
+        <option>Ивану Пущину</option>
+        <option>Вере Вяземской</option>
+        <option>Жоржу Дантесу</option>
+      </select>
+    </section>
+  </main>
+  <script src="scripts/sending.js"></script>
+</body>
+</html>
