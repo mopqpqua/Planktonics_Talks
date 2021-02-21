@@ -19,43 +19,58 @@
   </header>
 
   <main class="chat">
+    <!-- Блок простого общения начало -->
     <section class="talking">
-      <ul class="chat__receivedList">
-        <li class="chat__message">
-          <span class="chat__from">Иван Пущин: </span>
+      <!-- Блок полученных сообщений начало -->
+      <ul class="received">
+        <li class="received__msg">
+          <span class="received__from">Иван Пущин: </span>
           Привет, Александр! Как там твоя поэма?
         </li>
-        <li class="chat__message">
-          <span class="chat__from">Вера Вяземская: </span>
+
+        <li class="received__msg">
+          <span class="received__from">Вера Вяземская: </span>
           Право же, Саша, это же надо было так...
         </li>
-        <li class="chat__message">
-          <span class="chat__from">Жорж Дантес: </span>
+
+        <li class="received__msg">
+          <span class="received__from">Жорж Дантес: </span>
           Смею вызывать вас на дуэль! Мерзавец! Дуэль в майнкрафте!
         </li>
       </ul>
-      <ul class="chat__sentList">
-        <li class="chat__message">
-          <span class="chat__to">Ивану Пущину: </span>
+      <!-- Блок полученных сообщений конец -->
+
+      <!-- Блок отправленных сообщений начало -->
+      <ul class="sent">
+        <li class="sent__message">
+          <span class="sent__to">Ивану Пущину: </span>
           В последнее время офис, а не поэма...
         </li>
         <li v-for="message in messages">{{ message }}</li>
       </ul>
-      <input
-      type="text"
-      class="chat__input"
-      name="inputMsg"
-      v-on:keyup.enter="sentMessage"
-      >
-      <select
-      class="chat__contacts"
-      name="contacts"
-      >
-        <option>Ивану Пущину</option>
-        <option>Вере Вяземской</option>
-        <option>Жоржу Дантесу</option>
-      </select>
+      <!-- Блок отправленных сообщений конец -->
+
+      <!-- Блок ввода сообщения начало -->
+      <div class="input">
+        <input
+        type="text"
+        name="inputMsg"
+        class="talking__input"
+        autocomplete="off"
+        v-on:keyup.enter="sentMessage"
+        >
+        <select
+        class="talking__contacts"
+        name="contacts"
+        >
+          <option>Ивану Пущину</option>
+          <option>Вере Вяземской</option>
+          <option>Жоржу Дантесу</option>
+        </select>
+      </div>
+      <!-- Блок ввода сообщения конец -->
     </section>
+    <!-- Блок простого общения конец -->
   </main>
   <script src="scripts/sending.js"></script>
 </body>
