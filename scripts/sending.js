@@ -17,19 +17,24 @@ const vm = new Vue({
 
   methods: {
     sentMessage: function() {
-      this.messages.push({ name: this.user, text: this.message, date: '' });
+      this.messages.push(
+        { name: this.user.login, text: this.message, date: '' }
+      );
       this.message = '';
     },
 
     login: function() {
+      // Идентификация пользователя по электронной почте
       let currentUser = this.user.email;
+      // Проверка наличия пользователя
       if ( Object.keys(this.users).includes(currentUser) ) {
+        // Проверка логина и пароля
         this.users[currentUser].password == this.user.password &&
         this.users[currentUser].login == this.user.login ?
         this.auth = true :
         alert('Неверный логин или пароль');
       } else {
-        alert('Пользователь не зарегестрирован');
+        alert('Пользователь не зарегистрирован');
       };
     },
   },
