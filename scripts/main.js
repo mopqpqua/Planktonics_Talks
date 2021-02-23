@@ -1,4 +1,9 @@
 'use strict';
+function findIndex(messageList, currentMessage) {
+  return Array.prototype.indexOf.call( // Индекс текущего Li в Ul
+    messageList.children, currentMessage
+  );
+}
 // Идентификация ключа для localStorage:
 // ключ меняется в зависимости от <title> страницы
 const STORAGE_KEY = document.querySelector('title').textContent.split(' - ')[1];
@@ -16,6 +21,9 @@ const vm = new Vue({
     // Сообщения
     message: '',
     messages: storage.fetch(),
+
+    // Редактирование сообщения
+    edit: '',
   },
 
   methods: {
@@ -43,15 +51,17 @@ const vm = new Vue({
     },
 
     deleting: function(event) {
-      let messageList = document.querySelector('.sent'); // Список сообщений
-      let currentMessage = event.target.parentNode.parentNode // Текущий Li
-      let index = Array.prototype.indexOf.call( // Индекс текущего Li в Ul
-        messageList.children, currentMessage
+      let index = findIndex(
+        document.querySelector('.sent'), // Список сообщений
+        event.target.parentNode.parentNode // Текущий Li
       );
-      console.log(index);
 
       this.messages.splice(index, 1); // Удаление сообщения из массива
       storage.save();
+    },
+
+    editing: function(event) {
+
     },
   },
 });
