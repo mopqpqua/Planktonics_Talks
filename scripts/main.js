@@ -29,9 +29,15 @@ const vm = new Vue({
   methods: {
     sentMessage: function() {
       this.messages.push(
-        { name: this.user.login, text: this.message, date: '' }
+        {
+          name: this.user.login,
+          text: this.message,
+          date: '',
+          from: this.user.email,
+        }
       );
       this.message = '';
+      manageHiding(this.user.email.split('@')[0]);
       storage.save();
     },
 
@@ -48,6 +54,8 @@ const vm = new Vue({
       } else {
         alert('Пользователь не зарегистрирован');
       };
+      // Скрывает элемент .manage у чужих сообщений
+      manageHiding(this.user.email.split('@')[0]);
     },
 
     deleting: function(event) {

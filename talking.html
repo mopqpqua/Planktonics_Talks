@@ -17,6 +17,8 @@
   <script src="package_talking.json"></script>
   <!-- Сохранение сообщений в localStorage -->
   <script src="scripts/storage_messages.js"></script>
+  <!-- Скрытие кнопки панели управления у чужих сообщений -->
+  <script src="scripts/manageHiding.js"></script>
 </head>
 <body>
   <header class="header">
@@ -70,7 +72,11 @@
           {{ message.name }}:
           {{ message.text }}
           {{ message.date }}
-          <div class="manage" v-bind:id="user.email">
+          <div
+          class="manage"
+          v-bind:id="message.from.split('@')[0]"
+          v-show="message.from == user.email"
+          >
             <input
             type="text"
             class="manage__messageEdit"

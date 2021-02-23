@@ -1,1 +1,1 @@
-startingMessages = '[{"name":"Оля","text":"Привет, работнички!","date":""},{"name":"Оля","text":"Как выходные?","date":""}]';
+startingMessages = '[{"name":"Оля","text":"Привет, работнички!","date":"","from":"ola@gmail.com"},{"name":"Оля","text":"Как выходные?","date":"","from":"ola@gmail.com"}]';
