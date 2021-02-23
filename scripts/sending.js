@@ -1,4 +1,7 @@
 'use strict';
+// Идентификация ключа для localStorage:
+// ключ меняется в зависимости от <title> страницы
+const STORAGE_KEY = document.querySelector('title').textContent.split(' - ')[1];
 
 const vm = new Vue({
   el: '.chat',
@@ -12,7 +15,7 @@ const vm = new Vue({
 
     // Сообщения
     message: '',
-    messages: [],
+    messages: storage.fetch(),
   },
 
   methods: {
@@ -21,6 +24,7 @@ const vm = new Vue({
         { name: this.user.login, text: this.message, date: '' }
       );
       this.message = '';
+      storage.save();
     },
 
     login: function() {

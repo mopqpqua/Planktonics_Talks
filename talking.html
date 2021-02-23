@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+  <title>Planktonics Talks - Talking</title>
+  <meta charset="utf-8"/>
+  <meta
+  name="author"
+  content="Slava Rykov"
+  />
+  <meta
+  name="description"
+  content="Corporate chat app"
+  />
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <!-- Начальные сообщения для разговорного чата -->
+  <script src="package_talking.json"></script>
+  <!-- Сохранение сообщений в localStorage -->
+  <script src="scripts/storage_messages.js"></script>
+</head>
+<body>
+  <header class="header">
+    <h1 class="header__title">Planktonics Talks</h1>
+  </header>
+
+  <main class="chat">
+    <!-- Блок логина начало -->
+    <div class="auth" v-if="!auth">
+      <h2 class="auth__title">Sign in</h2>
+      <input
+      type="email"
+      class="auth__email"
+      autofocus
+      placeholder="Введите почту"
+      v-model.lazy="user.email"
+      >
+      <br/>
+      <input
+      type="text"
+      class="auth__login"
+      placeholder="Введите логин"
+      v-model.lazy="user.login"
+      >
+      <br/>
+      <input
+      type="password"
+      class="auth__password"
+      placeholder="Введите пароль"
+      v-model.lazy="user.password"
+      >
+      <br/>
+      <button
+      class="auth__submit"
+      v-on:click="login"
+      >
+      Войти
+      </button>
+    </div>
+    <!-- Блок логина конец -->
+
+    <!-- Блок общения начало -->
+    <section class="talking" v-else>
+      <h2 class="talking__title">Messages</h2>
+
+      <!-- Блок сообщений начало -->
+      <ul class="sent">
+        <li
+        class="sent__message"
+        v-for="message in messages">
+          {{ message.name }}:
+          {{ message.text }}
+          {{ message.date }}
+          <input type="text" class="sent__message-edit"/>
+          <button class=sent__message-delete>X</button>
+        </li>
+      </ul>
+      <!-- Блок сообщений конец -->
+
+      <!-- Блок ввода сообщения начало -->
+      <div class="input">
+        <input
+        type="text"
+        autocomplete="off"
+        class="input__textInp"
+        v-model="message"
+        v-on:keyup.enter="sentMessage"
+        >
+      </div>
+      <!-- Блок ввода сообщения конец -->
+    </section>
+    <!-- Блок общения конец -->
+  </main>
+  <script src="scripts/sending.js"></script>
+</body>
+</html>
