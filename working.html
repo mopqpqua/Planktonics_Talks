@@ -74,6 +74,8 @@
             <input
             type="text"
             class="manage__messageEdit"
+            v-model.lazy="edit"
+            v-on:keyup.enter="editing"
             />
             <button
             class=manage__messageDelete
