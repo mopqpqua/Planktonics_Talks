@@ -37,7 +37,6 @@ const vm = new Vue({
         }
       );
       this.message = '';
-      manageHiding(this.user.email.split('@')[0]);
       storage.save();
     },
 
@@ -55,7 +54,6 @@ const vm = new Vue({
         alert('Пользователь не зарегистрирован');
       };
       // Скрывает элемент .manage у чужих сообщений
-      manageHiding(this.user.email.split('@')[0]);
     },
 
     deleting: function(event) {

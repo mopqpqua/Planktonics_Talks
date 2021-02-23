@@ -72,7 +72,10 @@
           {{ message.name }}:
           {{ message.text }}
           {{ message.date }}
-          <div class="manage" v-bind:id="message.from.split('@')[0]">
+          <div
+          class="manage"
+          v-show="message.from == user.email"
+          >
             <input
             type="text"
             class="manage__messageEdit"
