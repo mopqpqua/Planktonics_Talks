@@ -61,7 +61,14 @@ const vm = new Vue({
     },
 
     editing: function(event) {
+      let index = findIndex(
+        document.querySelector('.sent'), // Список сообщений
+        event.target.parentNode.parentNode // Текущий Li
+      );
 
+      this.messages[index].text = this.edit;
+      this.edit = '';
+      storage.save();
     },
   },
 });
