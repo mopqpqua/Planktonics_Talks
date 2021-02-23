@@ -41,5 +41,17 @@ const vm = new Vue({
         alert('Пользователь не зарегистрирован');
       };
     },
+
+    deleting: function(event) {
+      let messageList = document.querySelector('.sent'); // Список сообщений
+      let currentMessage = event.target.parentNode.parentNode // Текущий Li
+      let index = Array.prototype.indexOf.call( // Индекс текущего Li в Ul
+        messageList.children, currentMessage
+      );
+      console.log(index);
+
+      this.messages.splice(index, 1); // Удаление сообщения из массива
+      storage.save();
+    },
   },
 });

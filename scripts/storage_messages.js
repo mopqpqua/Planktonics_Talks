@@ -6,12 +6,12 @@ const storage = {
 
   fetch: function() {
     // Проверка на наличие хранилища по ключу в localStorage
-    if ( !window.localStorage.getItem(STORAGE_KEY) ) return [];
+    if ( !window.localStorage.getItem(STORAGE_KEY) ) {
+      // Если оно пустое, возвращаем стартовые сообщения
+      return JSON.parse(startingMessages);
+    }
 
-    let startMsg = JSON.parse(startingMessages);
     let messages = window.localStorage.getItem(STORAGE_KEY);
-    // Функция возвращает массив стартовых сообщений,
-    // объединённых с хранилищем
-    return startMsg.concat(JSON.parse(messages));
+    return JSON.parse(messages);
   },
 }

@@ -70,8 +70,16 @@
           {{ message.name }}:
           {{ message.text }}
           {{ message.date }}
-          <input type="text" class="sent__message-edit"/>
-          <button class=sent__message-delete>X</button>
+          <div class="manage" v-bind:id="user.email">
+            <input
+            type="text"
+            class="manage__messageEdit"
+            />
+            <button
+            class=manage__messageDelete
+            v-on:click="deleting"
+            >X</button>
+          </div>
         </li>
       </ul>
       <!-- Блок сообщений конец -->
@@ -90,6 +98,6 @@
     </section>
     <!-- Блок общения конец -->
   </main>
-  <script src="scripts/sending.js"></script>
+  <script src="scripts/main.js"></script>
 </body>
 </html>
