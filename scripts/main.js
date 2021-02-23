@@ -32,7 +32,7 @@ const vm = new Vue({
         {
           name: this.user.login,
           text: this.message,
-          date: '',
+          date: this.date,
           from: this.user.email,
         }
       );
@@ -75,6 +75,13 @@ const vm = new Vue({
       this.messages[index].text = this.edit;
       this.edit = '';
       storage.save();
+    },
+  },
+
+  computed: {
+    date: function() {
+      let date = new Date();
+      return `${date.getDate()}.${date.getMonth() + 1}|${date.getHours()}:${date.getDate()}`;
     },
   },
 });
