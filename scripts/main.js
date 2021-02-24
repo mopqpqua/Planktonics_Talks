@@ -24,6 +24,10 @@ const vm = new Vue({
 
     // Редактирование сообщения
     edit: '',
+
+    // Список задач
+    task: '',
+    todos: [],
   },
 
   methods: {
@@ -75,6 +79,21 @@ const vm = new Vue({
       this.messages[index].text = this.edit;
       this.edit = '';
       storage.save();
+    },
+
+    addTodo: function() {
+      this.todos.push(this.task);
+      this.task = '';
+    },
+
+    show: function(event) {
+      let currentNav = event.target.nextElementSibling;
+
+      if (getComputedStyle(currentNav).visibility == 'hidden') {
+        currentNav.style.visibility = 'visible';
+      } else {
+        currentNav.style.visibility = 'hidden';
+      }
     },
   },
 

@@ -15,6 +15,11 @@ body {
 .header {
   width: 70%;
   margin: 0 auto;
+
+  background-color: #37b2e6;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .header__title {
@@ -24,7 +29,6 @@ body {
   font-family: 'Inconsolata', monospace;
   color: #fff;
 
-  background-color: #37b2e6;
   text-align: center;
 }
 /* HEADER end*/
@@ -132,7 +136,7 @@ body {
   border-radius: 4px;
   box-shadow: 2px 3px 3px #c0c0c0;
 
-    word-wrap: break-word;
+  word-wrap: break-word;
 }
 
 /* MANAGE start*/
