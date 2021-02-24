@@ -12,6 +12,9 @@
   content="Corporate chat app"
   />
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles/working.css"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Rubik:wght@300&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <!-- Начальные сообщения для рабочего чата -->
   <script src="package_working.json"></script>
@@ -20,7 +23,7 @@
 </head>
 <body>
   <header class="header">
-    <h1 class="header__title">Planktonics Talks</h1>
+    <h1 class="header__title">PLANKTONICS TALKS</h1>
   </header>
 
   <main class="chat">
@@ -60,7 +63,7 @@
 
     <!-- Блок общения начало -->
     <section class="talking" v-else>
-      <h2 class="talking__title">Messages</h2>
+      <h2 class="talking__title">Work messages</h2>
 
       <!-- Блок сообщений начало -->
       <ul class="sent">
@@ -77,6 +80,7 @@
             <input
             type="text"
             class="manage__messageEdit"
+            placeholder="Редактировать текст"
             v-model.lazy="edit"
             v-on:keyup.enter="editing"
             />
@@ -103,6 +107,10 @@
     </section>
     <!-- Блок общения конец -->
   </main>
+
+  <!-- Блок футера начало -->
+  <footer class="footer"></footer>
+  <!-- Блок футера начало -->
   <script src="scripts/main.js"></script>
 </body>
 </html>
