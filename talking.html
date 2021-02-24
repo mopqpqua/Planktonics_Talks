@@ -63,6 +63,27 @@
 
     <!-- Блок общения начало -->
     <section class="talking" v-else>
+      <nav class="navigation">
+        <div class="rules">
+          <button class="rules__btn" v-on:click="show">Rules</button>
+          <article class="article">
+            <p class="article__par">
+              1. Старайтесь общаться без мата.
+            </p>
+            <p class="article__par">
+              2. За оскорбления в чате вы лишаетесь печенья на месяц.
+            </p>
+            <p class="article__par">
+              3. Для рабочих вопросов используйте рабочий чат.
+            </p>
+          </article>
+        </div>
+
+        <div class="meme">
+          <button class="meme__btn" v-on:click="show">Day meme</button>
+          <img src="img/catmeme.jpg"/>
+        </div>
+      </nav>
       <h2 class="talking__title">Flood messages</h2>
 
       <!-- Блок сообщений начало -->
@@ -82,7 +103,9 @@
             class="manage__messageEdit"
             placeholder="Редактировать текст"
             v-model.lazy="edit"
+            v-on:focus="edit = message.text"
             v-on:keyup.enter="editing"
+            v-on:blur="edit = ''"
             />
             <button
             class=manage__messageDelete
@@ -99,6 +122,7 @@
         type="text"
         autocomplete="off"
         class="input__textInp"
+        placeholder="Ваше сообщение"
         v-model="message"
         v-on:keyup.enter="sentMessage"
         >
