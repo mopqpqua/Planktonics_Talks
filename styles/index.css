@@ -1,3 +1,4 @@
+/* NAV start */
 .nav {
   width: 70%;
   height: 50px;
@@ -28,13 +29,11 @@
 
 .links__link {
   font-family: 'Inconsolata', monospace;
-  color: #37b2e6;
-  margin-top: 100px;
   font-size: 2em;
-
+  color: #37b2e6;
   text-decoration: none;
 
-  transition: all 0.2s;
+  margin-top: 100px;
 }
 
 .links__link:visited {
@@ -46,3 +45,4 @@
   color: #37b2e6;
   text-decoration: underline;
 }
+/* NAV end */

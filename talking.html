@@ -16,8 +16,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Rubik:wght@300&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
   <!-- Начальные сообщения для разговорного чата -->
   <script src="package_talking.json"></script>
+
   <!-- Сохранение сообщений в localStorage -->
   <script src="scripts/storage_messages.js"></script>
 </head>
@@ -27,9 +29,12 @@
   </header>
 
   <main class="chat">
+
     <!-- Блок логина начало -->
     <div class="auth" v-if="!auth">
       <h2 class="auth__title">Sign in</h2>
+
+      <!-- Поле для почты -->
       <input
       type="email"
       class="auth__email"
@@ -38,6 +43,8 @@
       v-model.lazy="user.email"
       >
       <br/>
+
+      <!-- Поле для логина -->
       <input
       type="text"
       class="auth__login"
@@ -45,6 +52,8 @@
       v-model.lazy="user.login"
       >
       <br/>
+
+      <!-- Поле для пароля -->
       <input
       type="password"
       class="auth__password"
@@ -52,17 +61,22 @@
       v-model.lazy="user.password"
       >
       <br/>
+
       <button
       class="auth__submit"
       v-on:click="login"
       >
       Войти
       </button>
+      <!-- Все данные записываются в переменную текущего пользователя (user) -->
     </div>
     <!-- Блок логина конец -->
 
+
     <!-- Блок общения начало -->
     <section class="talking" v-else>
+
+      <!-- Блок дополнительных функций начало -->
       <nav class="navigation">
         <div class="rules">
           <button class="rules__btn" v-on:click="show">Rules</button>
@@ -84,16 +98,20 @@
           <img src="img/catmeme.jpg"/>
         </div>
       </nav>
+      <!-- Блок дополнительных функций конец -->
+
       <h2 class="talking__title">Flood messages</h2>
 
       <!-- Блок сообщений начало -->
       <ul class="sent">
+        <!-- Данные берутся из массива messages -->
         <li
         class="sent__message"
         v-for="message in messages">
           {{ message.name }}:
           {{ message.text }}
           {{ message.date }}
+          <!-- Панель управления сообщением начало -->
           <div
           class="manage"
           v-show="message.from == user.email"
@@ -112,6 +130,7 @@
             v-on:click="deleting"
             >X</button>
           </div>
+          <!-- Панель управления сообщением конец -->
         </li>
       </ul>
       <!-- Блок сообщений конец -->
@@ -128,12 +147,14 @@
         >
       </div>
       <!-- Блок ввода сообщения конец -->
+
     </section>
     <!-- Блок общения конец -->
+
   </main>
 
   <!-- Блок футера начало -->
-  <footer class="footer"></footer>
+  <footer class="footer">Written by Slava Rykov</footer>
   <!-- Блок футера начало -->
   <script src="scripts/main.js"></script>
 </body>

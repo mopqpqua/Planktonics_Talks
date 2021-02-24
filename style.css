@@ -17,6 +17,7 @@ body {
   margin: 0 auto;
 
   background-color: #37b2e6;
+
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -28,10 +29,10 @@ body {
 
   font-family: 'Inconsolata', monospace;
   color: #fff;
-
   text-align: center;
 }
 /* HEADER end*/
+
 
 /* CHAT start */
 .chat {
@@ -69,7 +70,7 @@ body {
   box-shadow: 0 0 0 1px #fde74c;
 }
 
-/* submin button start*/
+/* submit button start*/
 .auth__submit {
   /* reset default settings */
   -webkit-appearance: none;
@@ -80,7 +81,6 @@ body {
   font-family: 'Rubik', sans-serif;
 
   min-width: 30%;
-
   padding: 5px 0;
   border-radius: 5px;
 
@@ -119,6 +119,7 @@ body {
 .sent {
   width: 100%;
   height: 70%;
+
   list-style-type: none;
   padding-inline-start: 0;
 
@@ -143,6 +144,7 @@ body {
 .manage {
   display: flex;
   justify-content: space-around;
+
   width: 90%;
   margin: 0 auto;
   margin-top: 10px;
@@ -150,9 +152,11 @@ body {
 
 /* messageEdit start */
 .manage__messageEdit {
-  font-family: 'Rubik', sans-serif;
   width: 30%;
   padding: 5px 5%;
+
+  font-family: 'Rubik', sans-serif;
+
   border: none;
   border-radius: 3px;
   box-shadow: 1px 2px 3px #c6c6c6 inset;
@@ -199,6 +203,7 @@ body {
   box-shadow: 1px 1px 2px #100b00 inset;
 }
 /* messageDelete end */
+
 /* MANAGE end*/
 /* SENT end */
 
@@ -206,6 +211,7 @@ body {
 .input {
   width: 100%;
   height: 80px;
+
   text-align: center;
 
   margin-bottom: 70px;
@@ -232,3 +238,13 @@ body {
 /* INPUT end */
 /* TALKING end */
 /* CHAT end */
+
+
+/* FOOTER start */
+.footer {
+  font-family: 'Rubik', sans-serif;
+  text-align: center;
+  color: grey;
+  font-size: 12px;
+}
+/* FOOTER end */
