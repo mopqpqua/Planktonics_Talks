@@ -147,6 +147,7 @@ body {
 /* messageEdit start */
 .manage__messageEdit {
   font-family: 'Rubik', sans-serif;
+  width: 30%;
   padding: 5px 5%;
   border: none;
   border-radius: 3px;
