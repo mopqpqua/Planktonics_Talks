@@ -1,11 +1,14 @@
 'use strict';
+// Функция, помогающая найти нужный индекс сообщения.
 function findIndex(messageList, currentMessage) {
   return Array.prototype.indexOf.call( // Индекс текущего Li в Ul
     messageList.children, currentMessage
   );
 }
 // Идентификация ключа для localStorage:
-// ключ меняется в зависимости от <title> страницы
+// ключ меняется в зависимости от <title> страницы:
+// если страница working - ключ = 'working',
+// а если 'talking', то ключ = 'talking'.
 const STORAGE_KEY = document.querySelector('title').textContent.split(' - ')[1];
 
 const vm = new Vue({
@@ -13,21 +16,24 @@ const vm = new Vue({
   data: {
     auth: false,
     // Пользователи
-    user: {},
+    user: {}, // Текущий
     users: {
       'sp@gmail.com': { login: 'Саша', password: 'poetry' },
-    },
+    }, // Все
+
 
     // Сообщения
-    message: '',
-    messages: storage.fetch(),
+    message: '', // Текущее
+    messages: storage.fetch(), // все
+
 
     // Редактирование сообщения
-    edit: '',
+    edit: '', // Новое сообщение, значение берётся из .input__textInp
+
 
     // Список задач
-    task: '',
-    todos: [],
+    task: '', // Текущая, значение берётся из .todoList__input
+    todos: [], // все
   },
 
   methods: {
@@ -57,7 +63,6 @@ const vm = new Vue({
       } else {
         alert('Пользователь не зарегистрирован');
       };
-      // Скрывает элемент .manage у чужих сообщений
     },
 
     deleting: function(event) {
@@ -87,6 +92,7 @@ const vm = new Vue({
     },
 
     show: function(event) {
+      // Функция меняет значение visibility у элементов .navigation
       let currentNav = event.target.nextElementSibling;
 
       if (getComputedStyle(currentNav).visibility == 'hidden') {
@@ -98,6 +104,7 @@ const vm = new Vue({
   },
 
   computed: {
+    // Геттер значения date
     date: function() {
       let date = new Date();
       return `${date.getDate()}.${date.getMonth() + 1}|${date.getHours()}:${date.getDate()}`;
