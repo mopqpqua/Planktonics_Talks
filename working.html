@@ -16,8 +16,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Rubik:wght@300&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
   <!-- Начальные сообщения для рабочего чата -->
   <script src="package_working.json"></script>
+
   <!-- Сохранение сообщений в localStorage -->
   <script src="scripts/storage_messages.js"></script>
 </head>
@@ -27,9 +29,12 @@
   </header>
 
   <main class="chat">
+
     <!-- Блок логина начало -->
     <div class="auth" v-if="!auth">
       <h2 class="auth__title">Sign in</h2>
+
+      <!-- Поле для почты -->
       <input
       type="email"
       class="auth__email"
@@ -38,6 +43,8 @@
       v-model.lazy="user.email"
       >
       <br/>
+
+      <!-- Поле для логина -->
       <input
       type="text"
       class="auth__login"
@@ -45,6 +52,8 @@
       v-model.lazy="user.login"
       >
       <br/>
+
+      <!-- Поле для пароля -->
       <input
       type="password"
       class="auth__password"
@@ -58,11 +67,15 @@
       >
       Войти
       </button>
+      <!-- Все данные записываются в переменную текущего пользователя (user) -->
     </div>
     <!-- Блок логина конец -->
 
+
     <!-- Блок общения начало -->
     <section class="talking" v-else>
+
+      <!-- Блок дополнительных функций начало -->
       <nav class="navigation">
         <div class="rules">
           <button class="rules__btn" v-on:click="show">Rules</button>
@@ -79,6 +92,7 @@
           </article>
         </div>
 
+        <!-- Небольшой список задач, данные берутся из массива todos -->
         <div class="todo">
           <button class="todo__btn" v-on:click="show">To do</button>
             <div class="todoList">
@@ -100,16 +114,20 @@
             </div>
         </div>
       </nav>
+      <!-- Блок дополнительных функций конец -->
+
       <h2 class="talking__title">Work messages</h2>
 
       <!-- Блок сообщений начало -->
       <ul class="sent">
+        <!-- Данные берутся из массива messages -->
         <li
         class="sent__message"
         v-for="message in messages">
           {{ message.name }}:
           {{ message.text }}
           {{ message.date }}
+          <!-- Панель управления сообщением начало -->
           <div
           class="manage"
           v-show="message.from == user.email"
@@ -128,6 +146,7 @@
             v-on:click="deleting"
             >X</button>
           </div>
+          <!-- Панель управления сообщением конец -->
         </li>
       </ul>
       <!-- Блок сообщений конец -->
@@ -144,12 +163,14 @@
         >
       </div>
       <!-- Блок ввода сообщения конец -->
+
     </section>
     <!-- Блок общения конец -->
+
   </main>
 
   <!-- Блок футера начало -->
-  <footer class="footer"></footer>
+  <footer class="footer">Written by Slava Rykov</footer>
   <!-- Блок футера начало -->
   <script src="scripts/main.js"></script>
 </body>
