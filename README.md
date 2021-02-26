@@ -8,7 +8,7 @@
 
 ## PLANKTONICS TALKS
 На главной странице вы увидите две ссылки справа и слева: TALKING приведёт вас к разговорному чату, предназначенному для лёгкого общения, флуда; WORKING же приведёт вас к рабочему чату, с более строгими правилами и админами.
-![GitHub Logo](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/7c298eea-de08-4e5b-b91e-4d212311f915/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210224%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210224T170739Z&X-Amz-Expires=86400&X-Amz-Signature=cbf000ef1999fce468bfdee406de360a1c85bca88c3e7f8c3a107fdca042825c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+![GitHub Logo](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/7c298eea-de08-4e5b-b91e-4d212311f915/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210226%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210226T125107Z&X-Amz-Expires=86400&X-Amz-Signature=2ca13af79bc25c1801697336af021d662db2e5097c0ab983ba76b9c47fd8e609&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
 Давайте зайдём в **TALKING**.
 
